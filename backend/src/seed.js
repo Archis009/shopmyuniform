@@ -10,13 +10,13 @@ async function main() {
   const catMens = await prisma.category.upsert({
     where: { slug: 'mens' },
     update: {},
-    create: { name: 'Men\\'s Fashion', slug: 'mens' },
+    create: { name: "Men's Fashion", slug: 'mens' },
   });
 
   const catWomens = await prisma.category.upsert({
     where: { slug: 'womens' },
     update: {},
-    create: { name: 'Women\\'s Fashion', slug: 'womens' },
+    create: { name: "Women's Fashion", slug: 'womens' },
   });
 
   const catAccessories = await prisma.category.upsert({
