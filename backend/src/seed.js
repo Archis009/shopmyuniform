@@ -94,7 +94,7 @@ async function main() {
       await prisma.product.create({
         data: {
           ...product,
-          imageUrl: `https://via.placeholder.com/400x500?text=${encodeURIComponent(product.name)}`
+          imageUrl: `https://placehold.co/400x500?text=${encodeURIComponent(product.name)}`
         }
       });
     }
