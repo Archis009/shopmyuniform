@@ -52,10 +52,10 @@ function Cart() {
                   <Link to={`/product/${item.product.id}`} style={{ fontWeight: '600', fontSize: '1.1rem' }}>
                     {item.product.name}
                   </Link>
-                  <span style={{ fontWeight: '700' }}>${(item.product.price * item.quantity).toFixed(2)}</span>
+                  <span style={{ fontWeight: '700' }}>₹{(item.product.price * item.quantity).toFixed(2)}</span>
                 </div>
                 <div style={{ color: 'var(--text-light)', fontSize: '0.9rem', marginBottom: 'auto' }}>
-                  ${item.product.price.toFixed(2)} each
+                  ₹{item.product.price.toFixed(2)} each
                 </div>
                 
                 <div className="flex justify-between items-center mt-1">
@@ -91,7 +91,7 @@ function Cart() {
           <h3 className="mb-1">Order Summary</h3>
           <div className="flex justify-between mb-1" style={{ color: 'var(--text-light)' }}>
             <span>Subtotal</span>
-            <span>${totalAmount.toFixed(2)}</span>
+            <span>₹{totalAmount.toFixed(2)}</span>
           </div>
           <div className="flex justify-between mb-1" style={{ color: 'var(--text-light)' }}>
             <span>Shipping</span>
@@ -99,7 +99,7 @@ function Cart() {
           </div>
           <div className="flex justify-between mb-2" style={{ fontWeight: '700', fontSize: '1.25rem', borderTop: '1px solid var(--border-color)', paddingTop: '1rem' }}>
             <span>Total</span>
-            <span>${totalAmount.toFixed(2)}</span>
+            <span>₹{totalAmount.toFixed(2)}</span>
           </div>
           
           <button 

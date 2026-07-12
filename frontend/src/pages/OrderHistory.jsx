@@ -67,7 +67,7 @@ function OrderHistory() {
                   {order.status}
                 </span>
                 <div style={{ fontWeight: '700', marginTop: '0.25rem' }}>
-                  ${order.totalAmount.toFixed(2)}
+                  ₹{order.totalAmount.toFixed(2)}
                 </div>
               </div>
             </div>
@@ -76,7 +76,7 @@ function OrderHistory() {
               {order.orderItems.map(item => (
                 <div key={item.id} className="flex justify-between" style={{ fontSize: '0.9rem', marginBottom: '0.5rem' }}>
                   <span>{item.quantity}x {item.product.name}</span>
-                  <span>${(item.priceAtPurchase * item.quantity).toFixed(2)}</span>
+                  <span>₹{(item.priceAtPurchase * item.quantity).toFixed(2)}</span>
                 </div>
               ))}
             </div>

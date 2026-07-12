@@ -267,7 +267,7 @@ function AdminDashboard() {
                     {order.shippingName}<br />
                     {order.shippingAddress}, {order.shippingCity} ({order.shippingZip})
                   </td>
-                  <td style={{ padding: '1rem' }}>${order.totalAmount.toFixed(2)}</td>
+                  <td style={{ padding: '1rem' }}>₹{order.totalAmount.toFixed(2)}</td>
                   <td style={{ padding: '1rem' }}>
                     <span className="badge" style={{ backgroundColor: '#eee', color: '#333' }}>
                       {order.status}
@@ -335,7 +335,7 @@ function AdminDashboard() {
                 </div>
                 <div className="grid grid-cols-2" style={{ gap: '1rem' }}>
                   <div className="form-group">
-                    <label>Price ($) *</label>
+                    <label>Price (₹) *</label>
                     <input 
                       type="number" 
                       step="0.01" 
@@ -432,7 +432,7 @@ function AdminDashboard() {
                       </td>
                       <td style={{ padding: '1rem' }}><strong>{product.name}</strong></td>
                       <td style={{ padding: '1rem' }}>{product.category?.name}</td>
-                      <td style={{ padding: '1rem' }}>${product.price.toFixed(2)}</td>
+                      <td style={{ padding: '1rem' }}>₹{product.price.toFixed(2)}</td>
                       <td style={{ padding: '1rem' }}>
                         <span style={{ color: product.stock === 0 ? 'var(--danger-color)' : 'inherit' }}>
                           {product.stock}

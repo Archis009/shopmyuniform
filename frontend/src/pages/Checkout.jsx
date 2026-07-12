@@ -113,7 +113,7 @@ function Checkout() {
               style={{ width: '100%', padding: '1rem' }}
               disabled={loading}
             >
-              {loading ? 'Processing...' : `Pay $${totalAmount.toFixed(2)}`}
+              {loading ? 'Processing...' : `Pay ₹${totalAmount.toFixed(2)}`}
             </button>
           </form>
         </div>
@@ -126,14 +126,14 @@ function Checkout() {
             {cart.map(item => (
               <div key={item.id} className="flex justify-between mb-1" style={{ fontSize: '0.9rem' }}>
                 <span>{item.quantity}x {item.product.name}</span>
-                <span>${(item.product.price * item.quantity).toFixed(2)}</span>
+                <span>₹{(item.product.price * item.quantity).toFixed(2)}</span>
               </div>
             ))}
           </div>
           
           <div className="flex justify-between mb-2" style={{ fontWeight: '700', fontSize: '1.25rem' }}>
             <span>Total</span>
-            <span>${totalAmount.toFixed(2)}</span>
+            <span>₹{totalAmount.toFixed(2)}</span>
           </div>
         </div>
       </div>

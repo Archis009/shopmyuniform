@@ -114,7 +114,7 @@ function Home() {
           <div style={{ display: 'flex', gap: '0.25rem', alignItems: 'center' }}>
             <input 
               type="number" 
-              placeholder="Min $" 
+              placeholder="Min ₹" 
               className="form-control" 
               style={{ width: '80px' }}
               value={minPrice}
@@ -123,7 +123,7 @@ function Home() {
             <span style={{ color: 'var(--text-light)' }}>-</span>
             <input 
               type="number" 
-              placeholder="Max $" 
+              placeholder="Max ₹" 
               className="form-control" 
               style={{ width: '80px' }}
               value={maxPrice}
@@ -185,7 +185,7 @@ function Home() {
                     </div>
                     <Link to={`/product/${product.id}`} className="product-title">{product.name}</Link>
                     <div className="flex justify-between items-center mt-1">
-                      <span className="product-price">${product.price.toFixed(2)}</span>
+                      <span className="product-price">₹{product.price.toFixed(2)}</span>
                       {product.stock > 0 ? (
                         <button 
                           className="btn btn-accent" 

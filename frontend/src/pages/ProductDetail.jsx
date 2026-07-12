@@ -86,7 +86,7 @@ function ProductDetail() {
         
         <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{product.name}</h1>
         <h2 style={{ fontSize: '1.75rem', color: 'var(--primary-color)', marginBottom: '1.5rem' }}>
-          ${product.price.toFixed(2)}
+          ₹{product.price.toFixed(2)}
         </h2>
         
         <p style={{ color: 'var(--text-light)', marginBottom: '2rem', fontSize: '1.1rem', lineHeight: 1.6 }}>

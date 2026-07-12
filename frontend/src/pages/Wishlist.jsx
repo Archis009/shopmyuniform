@@ -46,7 +46,7 @@ function Wishlist() {
             </Link>
             <div className="product-info">
               <Link to={`/product/${item.product.id}`} className="product-title">{item.product.name}</Link>
-              <span className="product-price mb-1">${item.product.price.toFixed(2)}</span>
+              <span className="product-price mb-1">₹{item.product.price.toFixed(2)}</span>
               
               <div className="flex gap-1" style={{ marginTop: 'auto' }}>
                 <button 
