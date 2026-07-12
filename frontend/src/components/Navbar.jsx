@@ -36,7 +36,7 @@ function Navbar() {
         ) : (
           <div className="nav-actions">
             <Link to="/login" className="btn btn-secondary">Login</Link>
-            <Link to="/register" className="btn btn-primary">Sign Up</Link>
+            <Link to="/register" className="btn btn-secondary">Sign Up</Link>
           </div>
         )}
       </div>

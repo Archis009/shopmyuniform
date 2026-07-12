@@ -9,7 +9,7 @@ const router = express.Router();
 // Register
 router.post('/register', async (req, res) => {
   try {
-    const { email, password, role } = req.body;
+    const { email, password } = req.body;
 
     if (!email || !password) {
       return res.status(400).json({ error: 'Email and password are required' });
@@ -21,13 +21,12 @@ router.post('/register', async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const userRole = role === 'ADMIN' ? 'ADMIN' : 'USER'; // Allow admin creation for assessment
 
     const user = await prisma.user.create({
       data: {
         email,
         password: hashedPassword,
-        role: userRole,
+        role: 'USER',
       },
     });
 
