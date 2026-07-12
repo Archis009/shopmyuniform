@@ -16,6 +16,8 @@ function Home() {
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('');
   const [sort, setSort] = useState('newest');
+  const [minPrice, setMinPrice] = useState('');
+  const [maxPrice, setMaxPrice] = useState('');
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
@@ -26,7 +28,7 @@ function Home() {
   useEffect(() => {
     fetchProducts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [search, category, sort, page]);
+  }, [search, category, sort, minPrice, maxPrice, page]);
 
   const fetchCategories = async () => {
     try {
@@ -48,6 +50,9 @@ function Home() {
         page,
         limit: 8
       });
+      if (minPrice) query.append('minPrice', minPrice);
+      if (maxPrice) query.append('maxPrice', maxPrice);
+      
       const res = await fetch(`/api/products?${query.toString()}`);
       const data = await res.json();
       setProducts(data.products || []);
@@ -105,11 +110,32 @@ function Home() {
           <button type="submit" className="btn btn-primary">Search</button>
         </form>
         
-        <div style={{ display: 'flex', gap: '1rem' }}>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: '0.25rem', alignItems: 'center' }}>
+            <input 
+              type="number" 
+              placeholder="Min $" 
+              className="form-control" 
+              style={{ width: '80px' }}
+              value={minPrice}
+              onChange={(e) => { setMinPrice(e.target.value); setPage(1); }}
+            />
+            <span style={{ color: 'var(--text-light)' }}>-</span>
+            <input 
+              type="number" 
+              placeholder="Max $" 
+              className="form-control" 
+              style={{ width: '80px' }}
+              value={maxPrice}
+              onChange={(e) => { setMaxPrice(e.target.value); setPage(1); }}
+            />
+          </div>
+
           <select 
             className="form-control" 
             value={category} 
             onChange={(e) => { setCategory(e.target.value); setPage(1); }}
+            style={{ width: 'auto' }}
           >
             <option value="">All Categories</option>
             {categories.map(c => (
@@ -121,6 +147,7 @@ function Home() {
             className="form-control" 
             value={sort} 
             onChange={(e) => { setSort(e.target.value); setPage(1); }}
+            style={{ width: 'auto' }}
           >
             <option value="newest">Newest Arrivals</option>
             <option value="price_asc">Price: Low to High</option>

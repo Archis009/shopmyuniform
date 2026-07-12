@@ -51,6 +51,12 @@ router.get('/:id', async (req, res) => {
 // Place new order
 router.post('/', async (req, res) => {
   try {
+    const { shippingName, shippingAddress, shippingCity, shippingZip } = req.body;
+
+    if (!shippingName || !shippingAddress || !shippingCity || !shippingZip) {
+      return res.status(400).json({ error: 'All shipping details are required' });
+    }
+
     // Get user's cart
     const cartItems = await prisma.cartItem.findMany({
       where: { userId: req.user.id },
@@ -80,6 +86,10 @@ router.post('/', async (req, res) => {
           userId: req.user.id,
           totalAmount,
           status: 'PLACED',
+          shippingName,
+          shippingAddress,
+          shippingCity,
+          shippingZip,
           orderItems: {
             create: cartItems.map(item => ({
               productId: item.productId,

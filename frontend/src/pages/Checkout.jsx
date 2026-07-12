@@ -43,8 +43,15 @@ function Checkout() {
       const res = await fetch('/api/orders', {
         method: 'POST',
         headers: {
+          'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
-        }
+        },
+        body: JSON.stringify({
+          shippingName: formData.name,
+          shippingAddress: formData.address,
+          shippingCity: formData.city,
+          shippingZip: formData.zip
+        })
       });
       
       const data = await res.json();

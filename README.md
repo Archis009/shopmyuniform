@@ -41,7 +41,7 @@ npx prisma db push
 # Seed the database with categories, products, and users
 npm run db:seed
 
-# Start the server (runs on port 5000)
+# Start the server (runs on port 8000)
 npm run dev
 ```
 
@@ -67,7 +67,7 @@ The app will be running at [http://localhost:3000](http://localhost:3000)
 A `.env.example` file is included in the `backend/` directory. By default, the `.env` provided already works perfectly for a local SQLite setup.
 
 ```
-PORT=5000
+PORT=8000
 DATABASE_URL="file:./dev.db"
 JWT_SECRET="super-secret-key-for-assessment"
 ```
